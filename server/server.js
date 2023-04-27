@@ -54,7 +54,7 @@ class Server {
 
   
     start() {
-      this.server.listen(this.port, this.ip, () => {
+      this.server.listen(this.port,() => {
         console.log(`Servidor iniciado en http://${this.ip}:${this.port}`);
       });
     }
