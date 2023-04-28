@@ -32,7 +32,9 @@ class Server {
       this.app.use(express.static(this.publicPath));
       this.app.use((req, res, next) => {
         res.setHeader('Access-Control-Allow-Origin', "*");
+
         res.setHeader('Access-Control-Allow-Methods', ["GET", "PUT","POST","DELETE"]);
+
         res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
         next();
       });
@@ -54,7 +56,11 @@ class Server {
 
   
     start() {
+<<<<<<< HEAD
       this.server.listen(this.port,() => {
+=======
+      this.server.listen(this.port, () => {
+>>>>>>> 7ed7053b01dbe6c9f3eabd2e321b31adfdae1439
         console.log(`Servidor iniciado en http://${this.ip}:${this.port}`);
       });
     }
