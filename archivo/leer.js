@@ -11,6 +11,38 @@ for (let i = 2; ; i++) { // comienza desde la fila 2
     sheet[`E${i}`].t = 'n';
   }
 }
+for (let i = 2; ; i++) { // comienza desde la fila 2
+  const cell = sheet[`J${i}`];
+  if (!cell) break; // si no hay celda, terminar
+  if (cell.t === 'n') {
+    const valorEntero = parseInt(cell.v);
+    sheet[`J${i}`].v = valorEntero;
+    sheet[`J${i}`].t = 'n';
+  }
+}
+for (let i = 2; ; i++) { // comienza desde la fila 2
+  const cell = sheet[`I${i}`];
+  if (!cell) break; // si no hay celda, terminar
+  if (cell.t === 'n') {
+    const valorEntero = parseFloat(cell.v);
+    if(valorEntero>0){
+      valorEntero = -1 * valorEntero
+    }
+    sheet[`I${i}`].v = valorEntero;
+    sheet[`I${i}`].t = 'n';
+  }
+}
+for (let i = 2; ; i++) { // comienza desde la fila 2
+  const cell = sheet[`H${i}`];
+  if (!cell) break; // si no hay celda, terminar
+  if (cell.t === 'n') {
+    const valorEntero = parseFloat(cell.v);
+    sheet[`H${i}`].v = valorEntero;
+    sheet[`H${i}`].t = 'n';
+  }
+}
+
+
 const data = XLSX.utils.sheet_to_json(sheet);
 
 const dataByLocalidad = data.reduce((acc, curr) => {
