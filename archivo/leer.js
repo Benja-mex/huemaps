@@ -2,6 +2,15 @@ const XLSX = require('xlsx');
 const fs = require('fs');
 const workbook = XLSX.readFile('./archivo/huemaps.xlsx');
 const sheet = workbook.Sheets['huemaps'];
+for (let i = 2; ; i++) { // comienza desde la fila 2
+  const cell = sheet[`E${i}`];
+  if (!cell) break; // si no hay celda, terminar
+  if (cell.t === 'n') {
+    const valorEntero = parseInt(cell.v);
+    sheet[`E${i}`].v = valorEntero;
+    sheet[`E${i}`].t = 'n';
+  }
+}
 const data = XLSX.utils.sheet_to_json(sheet);
 
 const dataByLocalidad = data.reduce((acc, curr) => {
